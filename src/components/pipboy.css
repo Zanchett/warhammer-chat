@@ -53,37 +53,86 @@ body:after {
   to { opacity: 0.85; }
 }
 
+/* Glitch effect keyframes */
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+@keyframes glitch-top {
+  2%, 64% {
+    transform: translate(2px, -2px);
+  }
+  4%, 60% {
+    transform: translate(-2px, 2px);
+  }
+  62% {
+    transform: translate(13px, -1px) skew(-13deg);
+  }
+}
+
+@keyframes glitch-bottom {
+  2%, 64% {
+    transform: translate(-2px, 0);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0);
+  }
+  62% {
+    transform: translate(-22px, 5px) skew(21deg);
+  }
+}
+
+.glitch {
+  position: relative;
+  color: #14f074;
+}
+
+.glitch:before,
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+}
+
+.glitch:before {
+  animation: glitch-top 1s infinite linear alternate-reverse;
+  clip: rect(24px, 550px, 90px, 0);
+}
+
+.glitch:after {
+  animation: glitch-bottom 1s infinite linear alternate-reverse;
+  clip: rect(85px, 550px, 140px, 0);
+}
+
 .login-container {
-  /* margin-right: 20px; */
-  margin-top: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
   padding: 50px;
   border-radius: 0px;
   text-align: left;
-  max-width: 800px;
+  max-width: 400px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
   z-index: 3;
 }
 
-.login-content {
-  display: flex;
-  align-items: center;
-}
-
 .logo {
   text-align: center;
-  margin-right: 20px; 
+  margin-bottom: 20px;
 }
 
 .logo img {
-  width: 300px; 
+  width: 250px;
   height: auto;
-  margin-right: 60px;
-}
-
-.form-content {
-  flex: 1;
 }
 
 h1 {
