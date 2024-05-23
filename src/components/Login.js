@@ -21,7 +21,7 @@ const Login = ({ setToken }) => {
   return (
     <div className="login-container">
       <div className="logo">
-        <img src={logo} alt="Vault-Tec Logo" />
+        <img src={logo} alt="Empire Logo" />
       </div>
       <h1 className="flicker">DATASLATE</h1>
       <p className="subtitle flicker">V231.231.2-1</p>
