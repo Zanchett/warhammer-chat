@@ -15,7 +15,7 @@ const Login = ({ setToken }) => {
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', { username, password });
       setToken(response.data.token);
-      navigate('/'); // Navigate to the desired route after login
+      navigate('/animation'); // Navigate to the TerminalAnimation component
     } catch (error) {
       console.error('Login failed', error);
     }

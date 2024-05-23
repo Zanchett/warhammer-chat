@@ -1,28 +1,22 @@
 // src/App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
-import CrtOverlay from './components/CrtOverlay';
-import './App.css';
+import Chat from './components/Chat';
+import TerminalAnimation from './components/TerminalAnimation';
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem('token'));
-
-  const saveToken = (userToken) => {
-    localStorage.setItem('token', userToken);
-    setToken(userToken);
-  };
+  const [token, setToken] = useState('');
 
   return (
     <Router>
-      <div className="App">
-        <CrtOverlay />
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/" element={token ? <h2>Welcome to the Chat App</h2> : <Login setToken={saveToken} />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Login setToken={setToken} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/animation" element={<TerminalAnimation />} />
+      </Routes>
     </Router>
   );
 }
