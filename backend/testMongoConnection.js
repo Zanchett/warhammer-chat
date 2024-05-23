@@ -8,14 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Local MongoDB connection string
-const mongoURI = 'mongodb://localhost:27017/warhammer-chat';
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/warhammer-chat';
+console.log('Connecting to MongoDB with URI:', mongoURI); // Debug log
 
-// For remote MongoDB or MongoDB Atlas, use the appropriate URI
-// const mongoURI = 'mongodb://<username>:<password>@<remote_server_ip>:27017/warhammer-chat';
-// const mongoURI = 'mongodb+srv://<username>:<password>@cluster0.mongodb.net/warhammer-chat?retryWrites=true&w=majority';
-
-mongoose.connect(mongoURI).then(() => {
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
   console.log('Connected to MongoDB');
 }).catch((err) => {
   console.error('Failed to connect to MongoDB', err);

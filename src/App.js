@@ -1,6 +1,8 @@
 // src/App.js
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
+import Register from './components/Register';
 import CrtOverlay from './components/CrtOverlay';
 import './App.css';
 
@@ -13,10 +15,15 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <CrtOverlay />
-      {token ? <h2>Welcome to the Chat App</h2> : <Login setToken={saveToken} />}
-    </div>
+    <Router>
+      <div className="App">
+        <CrtOverlay />
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={token ? <h2>Welcome to the Chat App</h2> : <Login setToken={saveToken} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
