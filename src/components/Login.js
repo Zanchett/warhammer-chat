@@ -4,10 +4,12 @@ import axios from 'axios';
 import './pipboy.css';
 import logo from '../images/empire-logo.png';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 
 const Login = ({ setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -15,7 +17,8 @@ const Login = ({ setToken }) => {
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', { username, password });
       setToken(response.data.token);
-      navigate('/animation'); // Navigate to the TerminalAnimation component
+      setUser({ username: response.data.username });
+      navigate('/chat');
     } catch (error) {
       console.error('Login failed', error);
     }

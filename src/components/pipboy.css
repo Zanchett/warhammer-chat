@@ -6,6 +6,13 @@
   font-style: normal;
 }
 
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 html, body {
   height: 100%;
   margin: 0;
@@ -169,7 +176,7 @@ body {
   padding: 0;
   font-family: 'Courier New', Courier, monospace;
   background-color: #0a0a0a;
-  color: #00ff00;
+  color: #14f074;
   overflow: hidden;
 }
 
@@ -181,73 +188,120 @@ body {
 .sidebar {
   width: 200px; /* Fixed width for sidebar */
   padding: 10px;
-  background-color: #1a1a1a;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.user-info-title {
+  font-family: 'SpaceRace', monospace;
+  text-transform: uppercase;
+  font-weight: light;
+  font-size: 1.2em;
+  color: #14f074;
+  margin-bottom: 5px;
 }
 
 .user-info-box {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-.levels {
-  display: flex;
   flex-direction: column;
-  margin-right: 10px;
-}
-
-.level-box {
-  border: 1px solid #00ff00;
-  padding: 5px;
-  margin-bottom: 5px;
-  width: 40px;
-  text-align: center;
-  font-size: 0.6em;
-}
-
-.user-info {
-  border: 1px solid #00ff00;
-  padding: 10px;
+  align-items: center;
+  border: 1px solid #14f074;
+  padding: 18px 11px 18px 11px;
   width: 100%;
-}
-
-.user-info-title {
-  font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .user-info-text {
   margin-bottom: 5px;
 }
 
+.username-text {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 1.3em;
+  font-family: 'SpaceRace', monospace;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.inquisition-text {
+  font-size: 0.6em;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: 'SpaceRace', monospace;
+  color: #14f074;
+}
+
+.verified-text {
+  font-size: 0.6em;
+  font-family: 'SpaceRace', monospace;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #14f074;
+}
+
+.level-image {
+  width: 50px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.levels {
+  display: flex;
+  font-family: 'SpaceRace', monospace;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 12px;
+}
+
+.level-box {
+  border: 1px solid #14f074;
+  padding: 5px;
+  margin-bottom: 11px;
+  width: 40px;
+  text-align: center;
+  font-size: 0.6em;
+}
+
 .main-content {
   flex: 1;
+  width: 900px;
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
 
 .header-buttons {
+  width: 700px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
 .header-buttons button {
   background-color: #1a1a1a;
-  border: 2px solid #00ff00;
+  border: 1px solid #14f074;
   padding: 10px;
-  color: #00ff00;
+  color: #14f074;
   cursor: pointer;
   font-size: 14px;
   font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
   flex: 1;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .header-buttons button:last-child {
@@ -257,11 +311,47 @@ body {
 .terminal-box {
   flex: 1;
   background-color: #000000;
-  border: 1px solid #00ff00;
+  border: 1px solid rgba(128, 128, 128, 0.3); /* Transparent gray */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
+  position: relative;
+}
+
+.terminal-box::before,
+.terminal-box::after,
+.terminal-box .corner {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #14f074;
+  border-style: solid;
+}
+
+.terminal-box::before {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.terminal-box::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+.terminal-box .corner.top-right {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+
+.terminal-box .corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 2px 2px;
 }
 
 .terminal-header {
@@ -286,18 +376,36 @@ body {
 .chat-input input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #00ff00;
+  border: 1px solid #14f074;
   background-color: #1a1a1a;
-  color: #00ff00;
+  color: #14f074;
 }
 
 .chat-input button {
   padding: 10px;
   background-color: #1a1a1a;
-  border: 1px solid #00ff00;
-  color: #00ff00;
+  border: 1px solid #14f074;
+  color: #14f074;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+.button {
+  background-color: transparent;
+  border: 2px solid #14f074;
+  padding: 8px 20px;
+  color: #14f074;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 0px;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+
+.button:hover {
+  color: #1f281d;
+  background-color: #14f074;
 }
 
 /* Responsive adjustments */
@@ -336,3 +444,4 @@ body {
     padding: 5px;
   }
 }
+
